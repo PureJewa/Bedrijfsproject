@@ -1,6 +1,5 @@
 import customtkinter as ctk
 from config import *  # Import all configuration values (like button names, IP, etc.)
-import datetime
 from logger import set_gui_instance, write_log  # Functions to log events in the GUI
 from tia_connection import TIAConnection, sendBool, receiveBool  # Functions to communicate with a PLC
 
@@ -45,7 +44,7 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
             msg = "Starting process..."
             write_log(msg)  # Save message in log
             self.lamp.configure(fg_color=lampColors[0])  # Turn lamp green
-            sendBool(client, 1, 0, 1)  # Send "start" signal to PLC
+            sendBool(client, 1, 0, 1, True)  # Send "start" signal to PLC
             receiveBool(client, 1, 0, 1)  # Read confirmation from PLC
 
         elif name == homeScreenbuttons[1]:  # Pause button
