@@ -1,0 +1,7 @@
+To install all python package use:
+    pip install -r requirements.txt
+In the terminal.
+
+To run the program use:
+    python main.py
+In the terminal.
