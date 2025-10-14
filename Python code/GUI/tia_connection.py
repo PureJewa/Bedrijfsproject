@@ -1,8 +1,14 @@
 import snap7
 from logger import write_log
-from snap7.util import get_bool, set_bool
+from snap7.util import get_bool, set_bool, get_int, set_int, get_real, set_real, get_string, set_string, set_lreal, get_lreal
 
+startPLC = (1, 0, 1)  # DB, start, size
+pausePLC = (1, 1, 1)  # DB, start, size
+stopPLC = (1, 2, 1)   # DB, start, size
 
+speedPLC = (2, 0)
+accelerationPLC = (2, 2)
+cyclesPLC = (2, 4)
 # client = snap7.client.Client()
 # client.connect('192.168.10.1', 0, 1)  # IP, Rack, Slot
 #
@@ -341,4 +347,42 @@ def receiveString(client, db_number, start, max_length=20):
 
     except Exception as e:
         write_log(f"Error receiving string data from PLC: {e}")
+        return None
+
+def sendLreal(client, db_number, start, value):
+    try:
+        if not client.get_connected():
+            write_log("PLC not connected. Attempting to reconnect...")
+            client.connect(client.get_ip(), client.get_rack(), client.get_slot())
+            if not client.get_connected():
+                write_log("Reconnection failed.")
+                return
+
+        # LREAL = 8 bytes
+        data = bytearray(8)
+
+        # Convert the float into bytes and store in data
+        set_lreal(data, 0, value)
+
+        # Write to PLC
+        client.db_write(db_number, start, data)
+
+    except Exception as e:
+        write_log(f"Error sending Lreal data to PLC: {e}")
+
+def recieveLreal(client, db_number, start):
+    try:
+        if not client.get_connected():
+            write_log("PLC not connected. Attempting to reconnect...")
+            client.connect(client.get_ip(), client.get_rack(), client.get_slot())
+            if not client.get_connected():
+                write_log("Reconnection failed.")
+                return None
+
+        # Read 8 bytes from PLC (LREAL)
+        data = client.db_read(db_number, start, 8)
+        return get_lreal(data, 0)  # Convert bytes to float
+
+    except Exception as e:
+        write_log(f"Error receiving Lreal data from PLC: {e}")
         return None
