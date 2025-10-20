@@ -3,13 +3,15 @@ import subprocess
 from config import *  # Import all configuration values (like button names, IP, etc.)
 from logger import set_gui_instance  # Functions to log events in the GUI
 from tia_connection import *  # Functions to communicate with a PLC
-from Python_code.GUI.Vision import *
+# from Python_code.GUI.Vision import *
 
 # --- Basic GUI settings ---
 ctk.set_appearance_mode("System")  # Set theme (system = matches Windows/Mac theme)
 ctk.set_default_color_theme("blue")  # Set default color theme for the GUI
-client = TIAConnection(plcIpadress[0], plcIpadress[1], plcIpadress[2])  # Create a connection to the PLC
 
+client = TIAConnection(plcIpadress[0], plcIpadress[1], plcIpadress[2])  # Create a connection to the PLC
+client = TIAConnection(*plcIpadress)
+print(*plcIpadress)
 
 # --- Main GUI class ---
 class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
@@ -74,7 +76,7 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
             elif name == homeScreenbuttons[5]:
                 msg = 'Start camera'
                 write_log(msg)
-                subprocess.Popen("python Vision.py", shell=True)  # Start the vision script in a new process
+                subprocess.Popen("python Python_code\\GUI\\Vision.py", shell=True)  # Start the vision script in a new process
         except Exception as e:
             write_log(f"Error in button_action: {e}")
 
