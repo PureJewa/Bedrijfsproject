@@ -9,31 +9,9 @@ stopPLC = (1, 2, 1)   # DB, start, size
 speedPLC = (2, 0)
 accelerationPLC = (2, 2)
 cyclesPLC = (2, 4)
-# client = snap7.client.Client()
-# client.connect('192.168.10.1', 0, 1)  # IP, Rack, Slot
-#
-# # Read 1 byte (DB1, byte offset 0)
-# data = client.db_read(1, 0, 1)
-#
-# # Extract bits from that byte
-# bit0 = get_bool(data, 0, 0)  # DB1.DBX0.0
-# bit1 = get_bool(data, 0, 1)  # DB1.DBX0.1
-#
-# # Print the states of the bits
-# print("DB1.DBX0.0:", bit0)
-# print("DB1.DBX0.1:", bit1)
-#
-# # Set DB1.DBX0.0 to True (high)
-# set_bool(data, 0, 0, True)
-#
-# # Write the modified byte back to the PLC
-# client.db_write(1, 0, data)
-#
-# # Verify the change by reading the byte again
-# data = client.db_read(1, 0, 1)
-# bit0 = get_bool(data, 0, 0)  # DB1.DBX0.0
-# print("DB1.DBX0.0 after setting high:", bit0)
-
+# ----------------------------------------
+# Function to connect to a TIA Portal PLC
+# ----------------------------------------
 def TIAConnection(ip, rack, slot):
     try:
         client = snap7.client.Client()
@@ -44,132 +22,7 @@ def TIAConnection(ip, rack, slot):
     except Exception as e:
         write_log(f"Connection error: {e}")
         return None
-# def sendData(client, db_number, start, size):
-#     data = client.db_read(1, 0, 1)
-#     bit0 = get_bool(data, 0, 0)  # DB1.DBX0.0
-#     bit1 = get_bool(data, 0, 1)  # DB1.DBX0.1
-#     #
-#     # # Print the states of the bits
-#     print("DB1.DBX0.0:", bit0)
-#     print("DB1.DBX0.1:", bit1)
-#     #
-#     # # Set DB1.DBX0.0 to True (high)
-#     set_bool(data, 0, 0, True)
-#     #
-#     # # Write the modified byte back to the PLC
-#     client.db_write(1, 0, data)
-#
-# def sendBool(client, db_number, start, size, flag):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return
-#         data = client.db_read(db_number, start, size)
-#         set_bool(data, start, size, flag)
-#         client.db_write(db_number, start, data)
-#     except Exception as e:
-#         write_log(f"Error sending bool data to PLC: {e}")
-# def receiveBool(client, db_number, start, size):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return None
-#         data = client.db_read(db_number, start, 1)
-#         bit = get_bool(data, start, size)
-#         return bit
-#     except Exception as e:
-#         write_log(f"Error receiving data from PLC: {e}")
-#         return None
-# def sendInt(client, db_number, start, value):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return
-#         # 2 bytes voor INT
-#         data = bytearray(2)
-#         set_int(data, 0, value)
-#         client.db_write(db_number, start, data)
-#     except Exception as e:
-#         write_log(f"Error sending int data to PLC: {e}")
-#
-# def receiveInt(client, db_number, start):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return None
-#         data = client.db_read(db_number, start, 2)  # 2 bytes voor INT
-#         return get_int(data, 0)
-#     except Exception as e:
-#         write_log(f"Error receiving int data from PLC: {e}")
-#         return None
-# def sendFloat(client, db_number, start, value):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return
-#         data = bytearray(4)
-#         set_real(data, 0, value)
-#         client.db_write(db_number, start, data)
-#     except Exception as e:
-#         write_log(f"Error sending float data to PLC: {e}")
-#
-# def receiveFloat(client, db_number, start):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return None
-#         data = client.db_read(db_number, start, 4)  # 4 bytes voor REAL
-#         return get_real(data, 0)
-#     except Exception as e:
-#         write_log(f"Error receiving float data from PLC: {e}")
-#         return None
-# def sendString(client, db_number, start, value, max_length=20):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return
-#
-#         data = bytearray(max_length + 2)
-#         set_string(data, 0, value, max_length)
-#         client.db_write(db_number, start, data)
-#     except Exception as e:
-#         write_log(f"Error sending string data to PLC: {e}")
-#
-# def receiveString(client, db_number, start, max_length=20):
-#     try:
-#         if not client.get_connected():
-#             write_log("PLC not connected. Attempting to reconnect...")
-#             client.connect(client.get_ip(), client.get_rack(), client.get_slot())
-#             if not client.get_connected():
-#                 write_log("Reconnection failed.")
-#                 return None
-#
-#         data = client.db_read(db_number, start, max_length + 2)
-#         return get_string(data, 0, max_length)
-#     except Exception as e:
-#         write_log(f"Error receiving string data from PLC: {e}")
-#         return None
+
 # ----------------------------------------
 # Functions to communicate with a PLC (Siemens)
 # We can send and receive different types of data: BOOL, INT, FLOAT, STRING
