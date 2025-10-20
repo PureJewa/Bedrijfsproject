@@ -93,3 +93,10 @@
 [2025-10-03 12:21:40] Starting process...
 [2025-10-03 12:22:07] Connected to PLC at 192.168.10.1 (Rack: 0, Slot: 1)
 [2025-10-03 12:22:09] Starting process...
+[2025-10-20 07:41:57] Connection error: b' TCP : Unreachable peer'
+[2025-10-20 07:44:10] Connection error: b' TCP : Unreachable peer'
+[2025-10-20 07:44:46] Connection error: b' TCP : Unreachable peer'
+[2025-10-20 07:44:47] Start camera
+[2025-10-20 07:45:29] Start camera
+[2025-10-20 07:45:31] Start camera
+[2025-10-20 07:45:34] Start camera

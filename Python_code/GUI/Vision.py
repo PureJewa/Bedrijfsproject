@@ -16,3 +16,14 @@ class Vision:
     def release(self):
         self.cap.release()
         cv2.destroyAllWindows()
+
+vision = Vision()
+try:
+    while True:
+        frame = vision.capture_frame()
+        cv2.imshow("Camera", frame)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+finally:
+    vision.release()

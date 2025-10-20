@@ -1,9 +1,10 @@
 import customtkinter as ctk
 import subprocess
 from config import *  # Import all configuration values (like button names, IP, etc.)
-from logger import set_gui_instance, write_log  # Functions to log events in the GUI
+from logger import set_gui_instance  # Functions to log events in the GUI
 from tia_connection import *  # Functions to communicate with a PLC
-# from Vision import Vision  # Vision class to handle camera operations
+from Python_code.GUI.Vision import *
+
 # --- Basic GUI settings ---
 ctk.set_appearance_mode("System")  # Set theme (system = matches Windows/Mac theme)
 ctk.set_default_color_theme("blue")  # Set default color theme for the GUI
@@ -70,7 +71,10 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 msg = "Resetting process..."
                 write_log(msg)
                 self.lamp.configure(fg_color="gray")
-
+            elif name == homeScreenbuttons[5]:
+                msg = 'Start camera'
+                write_log(msg)
+                subprocess.Popen("python Vision.py", shell=True)  # Start the vision script in a new process
         except Exception as e:
             write_log(f"Error in button_action: {e}")
 
@@ -284,7 +288,4 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
 # --- Start the program ---
 gui_instance = Gui()
 gui_instance.mainloop()
-
-subprocess.Popen("python Vision.py", shell=True)  # Start the vision script in a new process
-vision = Vision()
 
