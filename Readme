@@ -3,5 +3,5 @@ To install all python package use:
 In the terminal.
 
 To run the program use:
-    python main.py
+    python Python_code\\GUI\\main.py
 In the terminal.
