@@ -4,14 +4,15 @@ from config import *  # Import all configuration values (like button names, IP, 
 from logger import set_gui_instance  # Functions to log events in the GUI
 from tia_connection import *  # Functions to communicate with a PLC
 # from Python_code.GUI.Vision import *
+from plc_controller_window import App
 
 # --- Basic GUI settings ---
 ctk.set_appearance_mode("System")  # Set theme (system = matches Windows/Mac theme)
 ctk.set_default_color_theme("blue")  # Set default color theme for the GUI
 
-client = TIAConnection(plcIpadress[0], plcIpadress[1], plcIpadress[2])  # Create a connection to the PLC
-client = TIAConnection(*plcIpadress)
-print(*plcIpadress)
+# client = TIAConnection(plcIpadress[0], plcIpadress[1], plcIpadress[2])  # Create a connection to the PLC
+# # client = TIAConnection(*plcIpadress)
+# print(*plcIpadress)
 
 # --- Main GUI class ---
 class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
@@ -49,8 +50,8 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 msg = "Starting process..."
                 write_log(msg)  # Save message in log
                 self.lamp.configure(fg_color=lampColors[0])  # Turn lamp green
-                sendBool(client, 1, 0, 1, True)  # Send "start" signal to PLC
-
+                # sendBool(client, 1, 0, 1, True)  # Send "start" signal to PLC
+                write_bool(*startPLC, True)
                 if not receiveBool(client, 1, 0, 1): # Read confirmation from PLC
                     msg = 'didnt recieve bool'
                     write_log(msg)
@@ -64,12 +65,14 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 msg = "Pausing process..."
                 write_log(msg)
                 self.lamp.configure(fg_color=lampColors[1])  # Turn lamp yellow
+                sendBool(client, *pausePLC, True)  # Send "pause" signal to PLC
 
             elif name == homeScreenbuttons[2]:  # Stop button
                 msg = "Stopping process..."
                 write_log(msg)
                 self.lamp.configure(fg_color=lampColors[2])  # Turn lamp red
-            elif name == homeScreenbuttons[3]: # Reset button
+                sendBool(client, *stopPLC, True)  # Send "stop" signal to PLC
+            elif name == homeScreenbuttons[4]: # Reset button
                 msg = "Resetting process..."
                 write_log(msg)
                 self.lamp.configure(fg_color="gray")
@@ -77,51 +80,106 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 msg = 'Start camera'
                 write_log(msg)
                 subprocess.Popen("python Python_code\\GUI\\Vision.py", shell=True)  # Start the vision script in a new process
+            elif name == homeScreenbuttons[3]:
+                msg = "Homing process..."
+                write_log(msg)
+                self.lamp.configure(fg_color="blue")
+                write_bool(*homePLC, True)
+
+
         except Exception as e:
             write_log(f"Error in button_action: {e}")
 
     def test_button_action(self, name):
         try:
+            # if name == testButtons[0]:
+            #     sendBool(client, 1, 0, 0, True)
+            #     msg = "Sent Bool True to DB1.DBX0.0"
+            #     write_log(msg)
+            # elif name == testButtons[1]:
+            #     value = receiveBool(client, 1, 0, 0)
+            #     msg = f"Received Bool from DB1.DBX0.0: {value}"
+            #     write_log(msg)
+            # elif name == testButtons[2]:
+            #     sendInt(client, 1, 6, 12345)
+            #     msg = "Sent Int 12345 to DB1.DBW2"
+            #     write_log(msg)
+            # elif name == testButtons[3]:
+            #     value = receiveInt(client, 1, 6)
+            #     msg = f"Received Int from DB1.DBW2: {value}"
+            #     write_log(msg)
+            # elif name == testButtons[4]:
+            #     sendFloat(client, 1, 2, 12.34)
+            #     msg = "Sent Float 12.34 to DB1.DBD4"
+            #     write_log(msg)
+            # elif name == testButtons[5]:
+            #     value = receiveFloat(client, 1, 2)
+            #     msg = f"Received Float from DB1.DBD4: {value}"
+            #     write_log(msg)
+            # elif name == testButtons[6]:
+            #     sendString(client, 1, 8, "Hello PLC")
+            #     msg = "Sent String 'Hello PLC' to DB1.DBB8"
+            #     write_log(msg)
+            # elif name == testButtons[7]:
+            #     value = receiveString(client, 1, 8, 20)
+            #     msg = f"Received String from DB1.DBB8: {value}"
+            #     write_log(msg)
+            #
+            # elif name == testButtons[8]:
+            #     sendLreal(client, 1, 10, "35.45")
+            #     msg = "Sent Lreal [45, 90, 135] to DB1.DBB8"
+            #     write_log(msg)
+            # elif name == testButtons[9]:
+            #     value = recieveLreal(client, 1, 10, 20)
+            #     msg = f"Sent Lreal  from DB1.DBB8: {value}"
+            #     write_log(msg)
             if name == testButtons[0]:
-                sendBool(client, 1, 0, 0, True)
-                msg = "Sent Bool True to DB1.DBX0.0"
+                write_bool(*Forward_X, True)
+                msg = "Moving X axis forward"
                 write_log(msg)
-            elif name == testButtons[1]:
-                value = receiveBool(client, 1, 0, 0)
-                msg = f"Received Bool from DB1.DBX0.0: {value}"
+            if name == testButtons[1]:
+                write_bool(*Backward_X, True)
+                msg = "Moving X axis backward"
                 write_log(msg)
-            elif name == testButtons[2]:
-                sendInt(client, 1, 6, 12345)
-                msg = "Sent Int 12345 to DB1.DBW2"
+            if name == testButtons[2]:
+                write_bool(*Forward_Y, True)
+                msg = "Moving Y axis forward"
                 write_log(msg)
-            elif name == testButtons[3]:
-                value = receiveInt(client, 1, 6)
-                msg = f"Received Int from DB1.DBW2: {value}"
+            if name == testButtons[3]:
+                write_bool(*Backward_Y, True)
+                msg = "Moving Y axis backward"
                 write_log(msg)
-            elif name == testButtons[4]:
-                sendFloat(client, 1, 2, 12.34)
-                msg = "Sent Float 12.34 to DB1.DBD4"
+            if name == testButtons[4]:
+                write_bool(*Forward_Z, True)
+                msg = "Moving Z axis forward"
                 write_log(msg)
-            elif name == testButtons[5]:
-                value = receiveFloat(client, 1, 2)
-                msg = f"Received Float from DB1.DBD4: {value}"
+            if name == testButtons[5]:
+                write_bool(*Backward_Z, True)
+                msg = "Moving Z axis backward"
                 write_log(msg)
-            elif name == testButtons[6]:
-                sendString(client, 1, 8, "Hello PLC")
-                msg = "Sent String 'Hello PLC' to DB1.DBB8"
+            if name == testButtons[6]:
+                x_coord = write_lreal(*X_CoordinatePLC)
+                msg = f"X Coordinate: {x_coord}"
                 write_log(msg)
-            elif name == testButtons[7]:
-                value = receiveString(client, 1, 8, 20)
-                msg = f"Received String from DB1.DBB8: {value}"
+            if name == testButtons[7]:
+                y_coord = write_lreal(*Y_CoordinatePLC)
+                msg = f"Y Coordinate: {y_coord}"
                 write_log(msg)
-
-            elif name == testButtons[8]:
-                sendLreal(client, 1, 10, "35.45")
-                msg = "Sent Lreal [45, 90, 135] to DB1.DBB8"
+            if name == testButtons[8]:
+                z_coord = write_lreal(*Z_CoordinatePLC)
+                msg = f"Z Coordinate: {z_coord}"
                 write_log(msg)
-            elif name == testButtons[9]:
-                value = recieveLreal(client, 1, 10, 20)
-                msg = f"Sent Lreal  from DB1.DBB8: {value}"
+            if name == testButtons[9]:
+                write_lreal(*X_Speed)
+                msg = "Set X Speed to 100 mm/s"
+                write_log(msg)
+            if name == testButtons[10]:
+                write_lreal(*Y_Speed)
+                msg = "Set Y Speed to 100 mm/s"
+                write_log(msg)
+            if name == testButtons[11]:
+                write_lreal(*Z_Speed)
+                msg = "Set Z Speed to 100 mm/s"
                 write_log(msg)
 
         except Exception as e:
@@ -153,6 +211,10 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 self.log_textbox.insert("end", line)
         elif screen_name == topButtons[3]: # Test screen
             self.create_test_widgets()
+        elif screen_name == topButtons[4]: # Control PLC
+            msg = "Opening PLC controller..."
+            write_log(msg)
+            subprocess.Popen("python Python_code\\GUI\\plc_controller_window.py", shell=True)
 
 
 
@@ -216,6 +278,31 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
 
         # Make sure motor labels distribute evenly
         self.overviewFrame.grid_columnconfigure(tuple(range(len(motors))), weight=1)
+        # Start het proces
+        self.update_lamp()
+
+    def update_lamp(self):
+        # Stop de callback als het venster of de lampen zijn vernietigd
+        if not self.winfo_exists():
+            return
+
+        try:
+            raw = read_bits_bytes()
+            b = raw[0]
+            bit_val = (b >> 1) & 0x01
+
+            for motor in ["X-motor", "Y-motor", "Z-motor"]:
+                lamp = self.device_lamps.get(motor)
+                if lamp and lamp.winfo_exists():
+                    lamp.configure(fg_color="green" if bit_val == 1 else "red")
+
+        except Exception as e:
+            # Als de GUI net sluit, negeer dan de fout (voorkomt crash)
+            print(f"update_lamp error: {e}")
+
+        # Alleen opnieuw aanroepen als het venster nog bestaat
+        if self.winfo_exists():
+            self.after(100, self.update_lamp)
 
     # --- Create settings screen ---
     def create_settings_widgets(self):
