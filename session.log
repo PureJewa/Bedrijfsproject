@@ -41010,3 +41010,11 @@
 [2026-01-03 11:35:08] Opening PLC controller
 [2026-01-03 11:35:15] Opening PLC controller
 [2026-01-12 20:54:26] GUI opgestart
+[2026-01-12 21:06:33] GUI opgestart
+[2026-01-12 21:06:44] Starting process
+[2026-01-12 21:06:44] Error setting bit b' ISO : An error occurred during send TCP : Connection timed out'
+[2026-01-12 21:06:44] Error setting bit b' ISO : An error occurred during send TCP : Connection timed out'
+[2026-01-12 21:06:44] Error setting bit b' ISO : An error occurred during send TCP : Connection timed out'
+[2026-01-12 21:06:44] Error setting bit b' ISO : An error occurred during send TCP : Connection timed out'
+[2026-01-12 21:06:44] Error getting bit b' ISO : An error occurred during send TCP : Connection timed out'
+[2026-01-12 21:06:44] Start confirmation not received from PLC
