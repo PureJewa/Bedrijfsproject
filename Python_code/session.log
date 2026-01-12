@@ -1,0 +1,385 @@
+[2025-11-26 16:05:56] GUI initialized.
+[2025-11-26 16:06:17] Failed to connect to PLC.
+[2025-11-26 16:07:39] Attempting to connect to PLC...
+[2025-11-26 16:07:39] b' TCP : Unreachable peer'
+[2025-11-26 16:07:39] Failed to connect to PLC.
+[2025-11-26 16:07:39] GUI initialized.
+[2025-11-26 16:56:42] Attempting to connect to PLC...
+[2025-11-26 16:56:42] GUI initialized.
+[2025-11-26 16:56:45] Start camera
+[2025-11-26 16:57:03] b' TCP : Connection timed out'
+[2025-11-26 16:57:03] Failed to connect to PLC.
+[2025-11-26 16:57:05] Attempting to connect to PLC...
+[2025-11-26 16:57:05] GUI initialized.
+[2025-11-26 16:57:07] Start camera
+[2025-11-26 16:57:26] b' TCP : Connection timed out'
+[2025-11-26 16:57:26] Failed to connect to PLC.
+[2025-11-26 16:57:31] Attempting to connect to PLC...
+[2025-11-26 16:57:31] GUI initialized.
+[2025-11-26 16:57:35] Start camera
+[2025-11-26 16:57:52] b' TCP : Connection timed out'
+[2025-11-26 16:57:52] Failed to connect to PLC.
+[2025-11-26 16:58:58] Attempting to connect to PLC...
+[2025-11-26 16:58:58] GUI initialized.
+[2025-11-26 16:59:00] Start camera
+[2025-11-26 16:59:19] b' TCP : Connection timed out'
+[2025-11-26 16:59:19] Failed to connect to PLC.
+[2025-11-26 17:01:06] GUI initialized.
+[2025-11-26 17:01:06] Attempting to connect to PLC...
+[2025-11-26 17:01:08] Start camera
+[2025-11-26 17:01:27] b' TCP : Connection timed out'
+[2025-11-26 17:01:27] Failed to connect to PLC.
+[2025-11-26 17:02:13] GUI initialized.
+[2025-11-26 17:02:13] Attempting to connect to PLC...
+[2025-11-26 17:02:15] Start camera
+[2025-11-26 17:02:34] b' TCP : Connection timed out'
+[2025-11-26 17:02:34] Failed to connect to PLC.
+[2025-11-26 17:02:51] GUI initialized.
+[2025-11-26 17:02:51] Attempting to connect to PLC...
+[2025-11-26 17:03:05] GUI initialized.
+[2025-11-26 17:03:05] Attempting to connect to PLC...
+[2025-11-26 17:03:08] Start camera
+[2025-11-26 17:03:21] GUI initialized.
+[2025-11-26 17:03:21] Attempting to connect to PLC...
+[2025-11-26 17:03:22] Start camera
+[2025-11-26 17:03:42] b' TCP : Connection timed out'
+[2025-11-26 17:03:42] Failed to connect to PLC.
+[2025-11-26 17:03:48] GUI initialized.
+[2025-11-26 17:03:48] Attempting to connect to PLC...
+[2025-11-26 17:04:09] b' TCP : Connection timed out'
+[2025-11-26 17:04:09] Failed to connect to PLC.
+[2025-11-26 17:05:25] GUI initialized.
+[2025-11-26 17:05:25] Attempting to connect to PLC...
+[2025-11-26 17:05:25] b' TCP : Unreachable peer'
+[2025-11-26 17:05:25] Failed to connect to PLC.
+[2025-11-26 17:05:27] Camera with index 0 successfully opened.
+[2025-11-26 17:06:08] GUI initialized.
+[2025-11-26 17:06:08] Attempting to connect to PLC...
+[2025-11-26 17:06:08] b' TCP : Unreachable peer'
+[2025-11-26 17:06:08] Failed to connect to PLC.
+[2025-11-26 17:06:09] Camera with index 0 successfully opened.
+[2025-11-26 17:06:20] GUI initialized.
+[2025-11-26 17:06:20] Attempting to connect to PLC...
+[2025-11-26 17:06:22] Start camera
+[2025-11-26 17:06:41] b' TCP : Connection timed out'
+[2025-11-26 17:06:41] Failed to connect to PLC.
+[2025-11-26 17:11:20] GUI initialized.
+[2025-11-26 17:11:20] Attempting to connect to PLC...
+[2025-11-26 17:11:21] Start camera
+[2025-11-26 17:11:43] GUI initialized.
+[2025-11-26 17:11:43] Attempting to connect to PLC...
+[2025-11-26 17:11:44] Start camera
+[2025-11-26 17:11:45] Camera with index 0 successfully opened.
+[2025-11-26 17:11:59] GUI initialized.
+[2025-11-26 17:11:59] Attempting to connect to PLC...
+[2025-11-26 17:12:01] Camera with index 0 successfully opened.
+[2025-11-26 17:12:01] Start camera
+[2025-11-26 17:12:18] GUI initialized.
+[2025-11-26 17:12:18] Attempting to connect to PLC...
+[2025-11-26 17:12:19] Start camera
+[2025-11-26 17:12:19] Camera with index 0 successfully opened.
+[2025-11-26 17:12:30] GUI initialized.
+[2025-11-26 17:12:30] Attempting to connect to PLC...
+[2025-11-26 17:12:32] Start camera
+[2025-11-26 17:12:32] Camera with index 0 successfully opened.
+[2025-11-26 17:12:32] Failed to capture frame from camera.
+[2025-11-26 17:12:52] b' TCP : Connection timed out'
+[2025-11-26 17:12:52] Failed to connect to PLC.
+[2025-11-26 17:13:07] GUI initialized.
+[2025-11-26 17:13:07] Attempting to connect to PLC...
+[2025-11-26 17:13:09] Start camera
+[2025-11-26 17:13:09] Camera with index 0 successfully opened.
+[2025-11-26 17:13:09] Failed to capture frame from camera.
+[2025-11-26 17:13:28] b' TCP : Connection timed out'
+[2025-11-26 17:13:28] Failed to connect to PLC.
+[2025-11-26 17:15:21] GUI initialized.
+[2025-11-26 17:15:21] Attempting to connect to PLC...
+[2025-11-26 17:15:22] Start camera
+[2025-11-26 17:15:23] Camera with index 0 successfully opened.
+[2025-11-26 17:15:42] b' TCP : Connection timed out'
+[2025-11-26 17:15:42] Failed to connect to PLC.
+[2025-11-26 17:17:15] GUI initialized.
+[2025-11-26 17:17:15] Attempting to connect to PLC...
+[2025-11-26 17:17:17] Camera with index 0 successfully opened.
+[2025-11-26 17:17:36] b' TCP : Connection timed out'
+[2025-11-26 17:17:36] Failed to connect to PLC.
+[2025-11-26 17:19:00] GUI initialized.
+[2025-11-26 17:19:00] Attempting to connect to PLC...
+[2025-11-26 17:19:02] Camera with index 0 successfully opened.
+[2025-11-26 17:19:09] Start camera
+[2025-11-26 17:19:10] Starting process...
+[2025-11-26 17:19:10] Error in button_action: name 'startPLC' is not defined
+[2025-11-26 17:19:18] Start camera
+[2025-11-26 17:19:21] b' TCP : Connection timed out'
+[2025-11-26 17:19:21] Failed to connect to PLC.
+[2025-11-26 17:22:38] GUI initialized.
+[2025-11-26 17:22:38] Attempting to connect to PLC...
+[2025-11-26 17:22:40] Camera with index 0 successfully opened.
+[2025-11-26 17:22:46] Start camera
+[2025-11-26 17:22:50] Starting process...
+[2025-11-26 17:22:50] Error in button_action: name 'startPLC' is not defined
+[2025-11-26 17:23:10] GUI initialized.
+[2025-11-26 17:23:10] Attempting to connect to PLC...
+[2025-11-26 17:23:11] Camera with index 0 successfully opened.
+[2025-11-26 17:23:19] Start camera
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:23:24] Writing LREAL at DB1.50: 0.0
+[2025-11-26 17:23:24] name 'struct' is not defined
+[2025-11-26 17:24:03] GUI initialized.
+[2025-11-26 17:24:03] Attempting to connect to PLC...
+[2025-11-26 17:24:04] Camera with index 0 successfully opened.
+[2025-11-26 17:24:53] GUI initialized.
+[2025-11-26 17:24:53] Attempting to connect to PLC...
+[2025-11-26 17:24:55] Camera with index 0 successfully opened.
+[2025-11-26 17:25:00] Start camera
+[2025-11-26 17:25:15] b' TCP : Connection timed out'
+[2025-11-26 17:25:15] Failed to connect to PLC.
+[2025-11-26 17:25:39] GUI initialized.
+[2025-11-26 17:25:39] Attempting to connect to PLC...
+[2025-11-26 17:25:41] Camera with index 0 successfully opened.
+[2025-11-26 17:25:49] GUI initialized.
+[2025-11-26 17:25:49] Attempting to connect to PLC...
+[2025-11-26 17:26:10] b' TCP : Connection timed out'
+[2025-11-26 17:26:10] Failed to connect to PLC.
+[2025-11-26 17:26:24] GUI initialized.
+[2025-11-26 17:26:24] Attempting to connect to PLC...
+[2025-11-26 17:26:35] GUI initialized.
+[2025-11-26 17:26:35] Attempting to connect to PLC...
+[2025-11-26 17:26:35] b' TCP : Unreachable peer'
+[2025-11-26 17:26:35] Failed to connect to PLC.
+[2025-11-26 17:26:36] Camera with index 0 successfully opened.
+[2025-11-26 17:26:45] Start camera
+[2025-11-26 17:27:18] GUI initialized.
+[2025-11-26 17:27:18] Attempting to connect to PLC...
+[2025-11-26 17:27:25] Start camera
+[2025-11-26 17:27:39] b' TCP : Connection timed out'
+[2025-11-26 17:27:39] Failed to connect to PLC.
+[2025-11-26 17:32:47] GUI initialized.
+[2025-11-26 17:32:47] Attempting to connect to PLC...
+[2025-11-26 17:32:48] Start camera
+[2025-11-26 17:33:08] b' TCP : Connection timed out'
+[2025-11-26 17:33:08] Failed to connect to PLC.
+[2025-11-26 17:35:27] GUI initialized.
+[2025-11-26 17:35:27] Attempting to connect to PLC...
+[2025-11-26 17:35:29] Start camera
+[2025-11-26 17:35:53] GUI initialized.
+[2025-11-26 17:35:53] Attempting to connect to PLC...
+[2025-11-26 17:35:54] Start camera
+[2025-11-26 17:36:23] GUI initialized.
+[2025-11-26 17:36:23] Attempting to connect to PLC...
+[2025-11-26 17:36:26] Start camera
+[2025-11-26 17:36:50] GUI initialized.
+[2025-11-26 17:37:00] GUI initialized.
+[2025-11-26 17:37:01] Attempting to connect to PLC...
+[2025-11-26 17:37:22] b' TCP : Connection timed out'
+[2025-11-26 17:37:22] Failed to connect to PLC.
+[2025-11-26 17:38:03] GUI initialized.
+[2025-11-26 17:38:04] Attempting to connect to PLC...
+[2025-11-26 17:38:07] Start camera
+[2025-11-26 17:38:07] Starting Vision Application...
+[2025-11-26 17:44:47] GUI initialized.
+[2025-11-26 17:44:47] Attempting to connect to PLC...
+[2025-11-26 17:44:50] Error in button_action: name 'actions' is not defined
+[2025-11-26 17:45:08] b' TCP : Connection timed out'
+[2025-11-26 17:45:08] Failed to connect to PLC.
+[2025-11-26 17:52:47] GUI initialized.
+[2025-11-26 17:52:47] Attempting to connect to PLC...
+[2025-11-26 17:52:52] Starting process...
+[2025-11-26 17:52:52] Error in button_action: write_bool() takes 3 positional arguments but 4 were given
+[2025-11-26 17:56:10] GUI initialized.
+[2025-11-26 17:56:10] Attempting to connect to PLC...
+[2025-11-26 17:56:15] Starting process...
+[2025-11-26 17:56:15] Error in button_action: write_bool() takes 3 positional arguments but 4 were given
+[2025-11-26 17:56:20] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:20] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:20] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:20] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:21] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:21] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:56:21] Writing LREAL at DB1.50: 0.0
+[2025-11-26 17:56:21] name 'struct' is not defined
+[2025-11-26 17:58:07] GUI initialized.
+[2025-11-26 17:58:07] Attempting to connect to PLC...
+[2025-11-26 17:58:09] Starting process...
+[2025-11-26 17:58:09] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 17:58:09] Error in button_action: name 'receiveBool' is not defined
+[2025-11-26 17:59:51] GUI initialized.
+[2025-11-26 17:59:51] Attempting to connect to PLC...
+[2025-11-26 17:59:53] Pausing process...
+[2025-11-26 17:59:53] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 17:59:53] Error in button_action: name 'receiveBool' is not defined
+[2025-11-26 17:59:54] Stopping process...
+[2025-11-26 17:59:54] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 17:59:54] Error in button_action: name 'receiveBool' is not defined
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 17:59:57] Writing LREAL at DB1.50: 0.0
+[2025-11-26 17:59:57] name 'struct' is not defined
+[2025-11-26 18:00:15] GUI initialized.
+[2025-11-26 18:00:16] Attempting to connect to PLC...
+[2025-11-26 18:00:17] Starting process...
+[2025-11-26 18:00:17] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:00:17] Reading (0, 0) bytes from DB1 starting at byte <snap7.client.Client object at 0x000002E26C0D3CB0>
+[2025-11-26 18:00:17] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:00:17] Didn't receive PLC confirmation
+[2025-11-26 18:00:18] Pausing process...
+[2025-11-26 18:00:18] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:00:18] Reading (0, 2) bytes from DB1 starting at byte <snap7.client.Client object at 0x000002E26C0D3CB0>
+[2025-11-26 18:00:18] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:00:18] Didn't receive PLC confirmation
+[2025-11-26 18:00:19] Stopping process...
+[2025-11-26 18:00:19] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:00:19] Reading (0, 1) bytes from DB1 starting at byte <snap7.client.Client object at 0x000002E26C0D3CB0>
+[2025-11-26 18:00:19] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:00:19] Didn't receive PLC confirmation
+[2025-11-26 18:00:21] Starting process...
+[2025-11-26 18:00:21] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:00:21] Reading (0, 0) bytes from DB1 starting at byte <snap7.client.Client object at 0x000002E26C0D3CB0>
+[2025-11-26 18:00:21] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:00:21] Didn't receive PLC confirmation
+[2025-11-26 18:00:33] GUI initialized.
+[2025-11-26 18:00:33] Attempting to connect to PLC...
+[2025-11-26 18:00:34] Starting process...
+[2025-11-26 18:00:34] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:00:34] Reading (0, 0) bytes from DB1 starting at byte <snap7.client.Client object at 0x00000180F5093CB0>
+[2025-11-26 18:00:34] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:00:34] Didn't receive PLC confirmation
+[2025-11-26 18:00:52] GUI initialized.
+[2025-11-26 18:01:14] GUI initialized.
+[2025-11-26 18:01:14] Attempting to connect to PLC...
+[2025-11-26 18:01:17] Starting process...
+[2025-11-26 18:01:17] argument 3: TypeError: Don't know how to convert parameter 3
+[2025-11-26 18:01:17] Reading (0, 0) bytes from DB1 starting at byte <snap7.client.Client object at 0x0000023023BE3CB0>
+[2025-11-26 18:01:17] can't multiply sequence by non-int of type 'tuple'
+[2025-11-26 18:01:17] Didn't receive PLC confirmation
+[2025-11-26 18:01:35] b' TCP : Connection timed out'
+[2025-11-26 18:01:35] Failed to connect to PLC.
+[2025-11-26 19:58:55] GUI initialized.
+[2025-11-26 19:58:55] Attempting to connect to PLC...
+[2025-11-26 19:59:00] Error in button_action: name 'actions' is not defined
+[2025-11-26 19:59:16] b' TCP : Connection timed out'
+[2025-11-26 19:59:16] Failed to connect to PLC.
+[2025-11-26 19:59:49] GUI initialized.
+[2025-11-26 19:59:49] Attempting to connect to PLC...
+[2025-11-26 19:59:52] Starting process...
+[2025-11-26 19:59:52] Error in button_action: name 'plc_addr' is not defined
+[2025-11-26 20:00:10] b' TCP : Connection timed out'
+[2025-11-26 20:00:10] Failed to connect to PLC.
+[2025-11-26 20:00:24] GUI initialized.
+[2025-11-26 20:00:24] Attempting to connect to PLC...
+[2025-11-26 20:00:26] Starting process...
+[2025-11-26 20:00:26] Error in button_action: name 'plc_addr' is not defined
+[2025-11-26 20:00:45] b' TCP : Connection timed out'
+[2025-11-26 20:00:45] Failed to connect to PLC.
+[2025-11-26 20:01:38] GUI initialized.
+[2025-11-26 20:01:38] Attempting to connect to PLC...
+[2025-11-26 20:01:40] Starting process...
+[2025-11-26 20:01:40] Error in button_action: Invalid PLC address format: (0, 0)
+[2025-11-26 20:01:59] b' TCP : Connection timed out'
+[2025-11-26 20:01:59] Failed to connect to PLC.
+[2025-11-26 20:02:22] Pausing process...
+[2025-11-26 20:02:22] Error in button_action: Invalid PLC address format: (0, 2)
+[2025-11-26 20:02:25] Stopping process...
+[2025-11-26 20:02:25] Error in button_action: Invalid PLC address format: (0, 1)
+[2025-11-26 20:02:27] Homing process...
+[2025-11-26 20:02:27] Error in button_action: Invalid PLC address format: (0, 4)
+[2025-11-26 20:03:31] GUI initialized.
+[2025-11-26 20:03:31] Attempting to connect to PLC...
+[2025-11-26 20:03:33] Starting process...
+[2025-11-26 20:03:33] Error in button_action: Invalid PLC address format: (0, 0)
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:03:37] Writing LREAL at DB1.50: 0.0
+[2025-11-26 20:03:37] name 'struct' is not defined
+[2025-11-26 20:09:22] GUI initialized.
+[2025-11-26 20:09:22] Attempting to connect to PLC...
+[2025-11-26 20:09:25] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:09:25] Moving X axis forward
+[2025-11-26 20:09:28] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:09:28] Moving X axis forward
+[2025-11-26 20:09:31] Starting process...
+[2025-11-26 20:09:31] Error in button_action: name 'receiveBool' is not defined
+[2025-11-26 20:09:44] b' TCP : Connection timed out'
+[2025-11-26 20:09:44] Failed to connect to PLC.
+[2025-11-26 20:11:51] GUI initialized.
+[2025-11-26 20:11:51] Attempting to connect to PLC...
+[2025-11-26 20:11:52] Starting process...
+[2025-11-26 20:11:52] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:52] Error in button_action: name 'receiveBool' is not defined
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:11:57] Writing LREAL at DB1.50: 0.0
+[2025-11-26 20:11:57] name 'struct' is not defined
+[2025-11-26 20:12:40] GUI initialized.
+[2025-11-26 20:12:40] Attempting to connect to PLC...
+[2025-11-26 20:12:44] Starting process...
+[2025-11-26 20:12:44] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:44] Error in button_action: read_bool() takes 2 positional arguments but 3 were given
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:12:51] Writing LREAL at DB1.50: 0.0
+[2025-11-26 20:12:51] name 'struct' is not defined
+[2025-11-26 20:19:03] GUI initialized.
+[2025-11-26 20:19:03] Attempting to connect to PLC...
+[2025-11-26 20:19:07] Opening PLC controller...
+[2025-11-26 20:19:13] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:19:16] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:19:24] b' TCP : Connection timed out'
+[2025-11-26 20:19:24] Failed to connect to PLC.
+[2025-11-26 20:28:11] GUI initialized.
+[2025-11-26 20:28:11] Attempting to connect to PLC...
+[2025-11-26 20:28:13] Starting process...
+[2025-11-26 20:28:13] Error in button_action: name '_set_bit' is not defined
+[2025-11-26 20:28:32] b' TCP : Connection timed out'
+[2025-11-26 20:28:32] Failed to connect to PLC.
+[2025-11-26 20:28:54] GUI initialized.
+[2025-11-26 20:28:55] Attempting to connect to PLC...
+[2025-11-26 20:28:56] Starting process...
+[2025-11-26 20:28:56] Error in button_action: name '_set_bit' is not defined
+[2025-11-26 20:29:16] GUI initialized.
+[2025-11-26 20:29:16] Attempting to connect to PLC...
+[2025-11-26 20:29:17] Starting process...
+[2025-11-26 20:29:17] Error in button_action: (0, 0)
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:29:34] Writing LREAL at DB1.50: 0.0
+[2025-11-26 20:29:34] name 'struct' is not defined
+[2025-11-26 20:29:37] b' TCP : Connection timed out'
+[2025-11-26 20:29:37] Failed to connect to PLC.
+[2025-11-26 20:30:18] GUI initialized.
+[2025-11-26 20:30:18] Attempting to connect to PLC...
+[2025-11-26 20:30:20] Starting process...
+[2025-11-26 20:30:20] Error in button_action: (0, 0)
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] b' ISO : An error occurred during send TCP : Connection timed out'
+[2025-11-26 20:30:24] Writing LREAL at DB1.50: 0.0
+[2025-11-26 20:30:24] name 'struct' is not defined

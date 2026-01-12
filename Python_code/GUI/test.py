@@ -1,5 +1,4 @@
 import snap7
-from logger import write_log
 from snap7.util import get_bool, set_bool
 
 client = snap7.client.Client()

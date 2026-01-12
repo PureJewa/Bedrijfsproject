@@ -1,0 +1,79 @@
+# CommunicationConfig.py
+# Config file for PLC communication settings
+
+# Here you can set the PLC connection parameters and data offsets
+PLC_IP = "192.168.10.1"
+RACK = 0
+SLOT = 1
+DB_NUM = 1
+
+# Max motor speed in degrees per second
+MAX_SPEED_DEG_PER_S = 18000.0
+# Max motor acceleration in degrees per second squared
+MAX_ACCEL_DEG_PER_S2 = 90000.0
+# Max amount of pallets
+MAX_PALLETS = 3
+# Max amount of cycles (sheets)
+MAX_CYCLES = 5
+# Max joystick speed
+MAX_JOYSTICK_SPEED = 5000.0
+# Max coordinate value
+MAX_COORD_X = 1000.0
+MAX_COORD_Y = 1000.0
+MAX_COORD_Z = 500.0
+# Here you can set BITS for the offsets of the data blocks
+# Format: "Bit_Name": (Byte_Index, Bit_Index)
+BITS_ALL = {
+    "Power_Python":        (0, 0),
+    "Start_Python":        (0, 1),
+    "Stop_Python":         (0, 2),
+    "Pauze_Python":        (0, 3),
+    "Reset_Python":        (0, 4),
+    "Home_Python":         (0, 5),
+    "Move_Python":         (0, 6),
+
+    "Forward_X_Python":    (1, 0),
+    "Backward_X_Python":   (1, 1),
+    "Forward_Y_Python":    (1, 2),
+    "Backward_Y_Python":   (1, 3),
+    "Forward_Z_Python":    (1, 4),
+    "Backward_Z_Python":   (1, 5),
+}
+
+# For easier access, we separate control and motion bits
+CONTROL_BITS = [
+    "Start_Python", "Stop_Python", "Pauze_Python", "Reset_Python",
+    "Home_Python", "Move_Python", "GoHome_Python",
+]
+MOTION_BITS = [
+    "Forward_X_Python", "Backward_X_Python",
+    "Forward_Y_Python", "Backward_Y_Python",
+    "Forward_Z_Python", "Backward_Z_Python",
+]
+
+# Here you can set REAL offsets for the data blocks
+# Format: "Real_Name": Byte_Index
+LREAL_OFFSETS = {
+    "Pick_X_Coord_Python":  78,
+    "Pick_Y_Coord_Python": 86,
+    "Pick_Z_Coord_Python": 94,
+
+    "Place X_Coord_Python": 102,
+    "Place_Y_Coord_Python": 110,
+    "Place_Z_Coord_Python": 118,
+
+    "X_Speed_Python": 26,
+    "Y_Speed_Python": 34,
+    "Z_Speed_Python": 42,
+
+    "Joystick_X_speed": 50,
+    "Joystick_Y_speed": 58,
+    "Joystick_Z_speed": 66,
+}
+
+# Here you can set INT offsets for the data blocks
+# Format: "Int_Name": Byte_Index
+INT_OFFSETS = {
+    "Pallet_Amount": 74,
+    "Sheet_Amount": 76,
+}

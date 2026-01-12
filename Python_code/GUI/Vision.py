@@ -1,5 +1,5 @@
 import cv2
-from logger import write_log
+from Python_code.Logger.logger import write_log
 class Vision:
     def __init__(self, camera_index=0):
         self.camera_index = camera_index
