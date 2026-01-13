@@ -91,7 +91,7 @@ ACTIONS = {
     "Homing": {
         "log": "Going Home!",
         "bit": "Home_Python",
-        "reset": ["Start_Python", "Pauze_Python", "Stop_Python", "Reset_Python"]
+        "reset": ["Pauze_Python", "Stop_Python", "Reset_Python"]
     },
     "Reset": {
         "log": "Resetting process",

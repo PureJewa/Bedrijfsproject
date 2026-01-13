@@ -71,6 +71,10 @@ def create_home_widgets(app):
         # Store buttons for later use
         app.device_lamps[device] = lamp
 
+    if app.connectionToPLC is True:
+        app.device_lamps["PLC"].configure(fg_color="green")
+    else:
+        app.device_lamps["PLC"].configure(fg_color="red")
     # Make sure motor labels distribute evenly
     equipmentLampFrame.grid_columnconfigure(tuple(range(len(motors))), weight=1)
 

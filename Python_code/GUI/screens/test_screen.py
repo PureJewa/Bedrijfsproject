@@ -8,3 +8,6 @@ def create_test_widgets(app):
     for btn in testButtons:
         button = ctk.CTkButton(app.testFrame, text=btn, command=lambda b=btn: app.test_button_action(b))
         button.pack(pady=5)
+
+def test_button_action(self, button_name):
+    write_log(f"Test button '{button_name}' pressed.")

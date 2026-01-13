@@ -16,15 +16,17 @@ def run_plc(gui_app):
     Make a connection to the PLC.
     :param gui_app:
     """
-    gui_app.lamp.configure(fg_color="blue")
+    gui_app.device_lamps["PLC"].configure(fg_color="blue")
 
     if plc_connect():
         write_log("Connected to PLC successfully.")
         gui_app.connectionToPLC = True
+        gui_app.device_lamps["PLC"].configure(fg_color="green")
 
     else:
         write_log("Failed to connect to PLC.")
         gui_app.connectionToPLC = False
+        gui_app.device_lamps["PLC"].configure(fg_color="red")
 
 
 def run_vision(gui_app):
