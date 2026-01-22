@@ -197,11 +197,16 @@ def home_button_action(app, name):
         # Reset all mutually exclusive PLC control bits
         for bit in action["reset"]:
             set_bit(bit, False)
-
+        time.sleep(0.5)
         # Verify whether the PLC acknowledged the command
         confirmed = get_bit(action["bit"])
         if not confirmed:
             write_log(f"{name} confirmation not received from PLC")
+        else:
+            if name == "Pauze_Python":
+                return
+            set_bit(action["bit"], False)  # Reset the command bit after confirmation
+
 
     except Exception as e:
         # Catch any unexpected runtime errors to prevent GUI crashes

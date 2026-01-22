@@ -9,6 +9,7 @@ from Python_code.GUI.screens.config_screens import *
 
 def toggle_operation_mode(app):
     app.operationSwitch = app.operation_mode_var.get()
+    set_bit("Power_Python", app.operationSwitch)
 
 
 def create_settings_widgets(app):

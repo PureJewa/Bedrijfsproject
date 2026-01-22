@@ -5,9 +5,9 @@ from Python_code.Communication.communicationTia import *
 from Python_code.Communication.communicationConfig import *
 
 topButtons = ['Home', 'Settings', 'Log', 'Test', 'Control PLC']
-homeScreenButtons = ['Start', 'Pause', 'Stop', 'Homing', 'Reset', 'Camera']
+homeScreenButtons = ['Start', 'Pause', 'Stop', 'Go Home', 'Reset', 'Camera', "Forward_X"]
 settingsScreenButtons = ['Speed', "Acceleration", "Cycles", "Pallets", "Pick coordinates", "Place coordinates"]
-testButtons = ['Forward X', 'Backward X', 'Forward Y', 'Backward Y', 'Forward Z', 'Backward Z', 'X coord', 'Y coord', 'Z coord','Set Speed X', 'Set Speed Y', 'Set Speed Z', 'Emergency Stop']
+testButtons = ['QR_Read_PLC', 'Forward X', 'Backward X', 'Forward Y', 'Backward Y', 'Forward Z', 'Backward Z', 'X coord', 'Y coord', 'Z coord','Set Speed X', 'Set Speed Y', 'Set Speed Z', 'Emergency Stop']
 testButtonsV1 = ['Send Bool', 'Receive Bool', 'Send Int', 'Receive Int', 'Send Float', 'Receive Float', 'Send String', 'Receive String', 'Send Lreal', 'Receive Lreal']
 lampColors = ['Green', 'Yellow', 'Red']
 
@@ -76,26 +76,30 @@ ACTIONS = {
     "Start": {
         "log": "Starting process",
         "bit": "Start_Python",
-        "reset": ["Pauze_Python", "Stop_Python", "Reset_Python"]
+        "reset": ["Pauze_Python", "Stop_Python", "Reset_Python", "Home_Python"]
     },
     "Pause": {
         "log": "Pausing process",
         "bit": "Pauze_Python",
-        "reset": ["Start_Python", "Stop_Python", "Reset_Python"]
+        "reset": ["Start_Python", "Stop_Python", "Reset_Python", "Home_Python"]
     },
     "Stop": {
         "log": "Stopping process",
         "bit": "Stop_Python",
-        "reset": ["Start_Python", "Pauze_Python", "Reset_Python"]
+        "reset": ["Start_Python", "Pauze_Python", "Reset_Python", "Home_Python"]
     },
-    "Homing": {
+    "Go Home": {
         "log": "Going Home!",
         "bit": "Home_Python",
-        "reset": ["Pauze_Python", "Stop_Python", "Reset_Python"]
+        "reset": ["Pauze_Python", "Stop_Python", "Reset_Python", "Start_Python"]
     },
     "Reset": {
         "log": "Resetting process",
         "bit": "Reset_Python",
-        "reset": ["Start_Python", "Pauze_Python", "Stop_Python"]
+        "reset": ["Start_Python", "Pauze_Python", "Stop_Python", "Home_Python"]
+    },
+    "Forward_X": {
+        "log": "Moving Forward X",
+        "bit": "Forward_X_Python"
     }
 }

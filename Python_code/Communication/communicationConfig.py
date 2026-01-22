@@ -6,7 +6,6 @@ PLC_IP = "192.168.10.1"
 RACK = 0
 SLOT = 1
 DB_NUM = 1
-
 # Max motor speed in degrees per second
 MAX_SPEED_DEG_PER_S = 18000.0
 # Max motor acceleration in degrees per second squared
@@ -31,6 +30,12 @@ BITS_ALL = {
     "Reset_Python":        (0, 4),
     "Home_Python":         (0, 5),
     "Move_Python":         (0, 6),
+    "Go_QR_Python":        (0, 7),
+    "QR_Ready_PLC":        (126, 3),
+    "Ready_For_Coord_PLC": (126, 4),
+    "At_Pick_Coordinate_PLC":   (126, 5),
+    "At_Place_Coordinate_PLC":  (126, 6),
+
 
     "Forward_X_Python":    (1, 0),
     "Backward_X_Python":   (1, 1),

@@ -18,7 +18,7 @@ def write_log(message):
                 to the terminal/console
     :param message:
     """
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     log_line = f"[{timestamp}] {message}\n"
 
     # Select file

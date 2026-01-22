@@ -7,6 +7,7 @@ import time
 # Imports within the project
 from Python_code.GUI.App import Gui
 from Python_code.Communication.communicationTia import plc_connect
+from Python_code.Communication.state_machine import PLCSequence
 from Python_code.Logger.logger import write_log
 from Python_code.Vision.Vision import Vision
 
@@ -46,6 +47,13 @@ def run_vision(gui_app):
             gui_app.device_lamps["Camera"].configure(fg_color="green")
 
 
+def plc_worker():
+    seq = PLCSequence()
+    while True:
+        seq.step()
+        time.sleep(0.05)
+
+
 if __name__ == "__main__":
     # Start de GUI in de main-thread
     app = Gui()
@@ -55,4 +63,6 @@ if __name__ == "__main__":
 
     # Start Vision in aparte thread
     threading.Thread(target=run_vision, args=(app,), daemon=True).start()
+    # threading.Thread(target=plc_worker, daemon=True).start()
     app.mainloop()
+

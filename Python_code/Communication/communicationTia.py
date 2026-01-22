@@ -62,9 +62,9 @@ def set_bit(name: str, value: bool):
         data = bytearray(client.db_read(DB_NUM, byte_index, 1))
         set_bool(data, 0, bit_index, bool(value))
         client.db_write(DB_NUM, byte_index, data)
-        write_log(f"Wrote BOOL at DB{DB_NUM}.{byte_index}.{bit_index}: {value}")
+        write_log(f"Wrote BOOL, {name} at DB{DB_NUM}.{byte_index}.{bit_index}: {value}")
     except Exception as e:
-        write_log(f"Error setting bit {e}")
+        write_log(f"Error setting bit {e}, name: {name}, value: {value}")
 
 
 def get_bit(name: str) -> bool:
@@ -77,6 +77,7 @@ def get_bit(name: str) -> bool:
         byte_index, bit_index = BITS_ALL[name]
         raw = client.db_read(DB_NUM, byte_index, 1)
         byte = raw[0]
+        write_log(f"Read BOOL, {name} at DB{DB_NUM}.{byte_index}.{bit_index}: {bool((byte >> bit_index) & 0x01)}")
         return bool((byte >> bit_index) & 0x01)
     except Exception as e:
         write_log(f"Error getting bit {e}")
