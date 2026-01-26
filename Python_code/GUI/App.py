@@ -34,6 +34,21 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
         self.connectionToCamera = None
         self.lamp = None
         self.logScreen = None
+        self.magnet_on = False
+        self.camera_connected = None
+        self.device_status = {
+            "PLC": "unknown",
+            "X-motor" : "NA",
+            "Y-motor": "NA",
+            "Z-motor": "NA",
+            "Gripper": "NA",
+            "Camera": "unknown",
+            "X-endstop" : "NA",
+            "Y-endstop": "NA",
+            "Z-endstop": "NA",
+        }
+
+        self.device_lamps = {}
 
         self.topbar_buttons = {}
         self.control_buttons = {}
@@ -70,6 +85,7 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
         self.pct_x = tk.StringVar(value="0%")
         self.pct_y = tk.StringVar(value="0%")
         self.pct_z = tk.StringVar(value="0%")
+        self.pct_r = tk.StringVar(value="0%")
         self.deadzone = tk.DoubleVar(value=0.20)
         self.threshold = tk.DoubleVar(value=0.30)
 
@@ -102,6 +118,8 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
             write_log("GUI opgestart")
         # Update topbar button highlight
         self.highlight_topbar_button("Home")
+
+        self.update_devices()
 
     # Create the top navigation bar
     def create_topbar(self):
@@ -210,3 +228,21 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
                 button.configure(fg_color="#1F6AA5")  # active color
             else:
                 button.configure(fg_color="#3E3E40")  # default color
+
+    def update_devices(self):
+        for device, status in self.device_status.items():
+            lamp = self.device_lamps.get(device)
+            if not lamp:
+                continue
+
+            if status == "ok":
+                lamp.configure(fg_color="green")
+            elif status == "error":
+                lamp.configure(fg_color="red")
+            elif status == "NA":
+                lamp.configure(fg_color="gray")
+            else:
+                lamp.configure(fg_color="blue")
+
+        self.after(100, self.update_devices)
+

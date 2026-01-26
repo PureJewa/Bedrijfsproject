@@ -58,7 +58,7 @@ def create_home_widgets(app):
     overviewLabel.grid(row=0, column=0, columnspan=len(motors), pady=10, sticky="n")
 
     # Create a label + lamp for each piece of equipment
-    app.device_lamps = {}
+
 
     for i, device in enumerate(devices):
         deviceLabel = ctk.CTkLabel(equipmentLampFrame, text=device)
@@ -67,8 +67,6 @@ def create_home_widgets(app):
         lamp = ctk.CTkLabel(equipmentLampFrame, text="", width=30, height=30,
                             fg_color="gray", corner_radius=15)
         lamp.grid(row=i + 1, column=1, padx=5, pady=5, sticky="w")
-
-        # Store buttons for later use
         app.device_lamps[device] = lamp
 
     if app.connectionToPLC is True:

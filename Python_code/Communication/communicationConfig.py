@@ -35,6 +35,7 @@ BITS_ALL = {
     "Ready_For_Coord_PLC": (126, 4),
     "At_Pick_Coordinate_PLC":   (126, 5),
     "At_Place_Coordinate_PLC":  (126, 6),
+    "Magneet_Python":     (),
 
 
     "Forward_X_Python":    (1, 0),
@@ -43,6 +44,8 @@ BITS_ALL = {
     "Backward_Y_Python":   (1, 3),
     "Forward_Z_Python":    (1, 4),
     "Backward_Z_Python":   (1, 5),
+    "Forward_R_Python":   (1, 6),
+    "Backward_R_Python":  (1, 7),
 }
 
 # For easier access, we separate control and motion bits
@@ -54,6 +57,7 @@ MOTION_BITS = [
     "Forward_X_Python", "Backward_X_Python",
     "Forward_Y_Python", "Backward_Y_Python",
     "Forward_Z_Python", "Backward_Z_Python",
+    "Forward_R_Python", "Backward_R_Python",
 ]
 
 # Here you can set REAL offsets for the data blocks
@@ -74,6 +78,7 @@ LREAL_OFFSETS = {
     "Joystick_X_speed": 50,
     "Joystick_Y_speed": 58,
     "Joystick_Z_speed": 66,
+    "Joystick_R_speed": 78
 }
 
 # Here you can set INT offsets for the data blocks

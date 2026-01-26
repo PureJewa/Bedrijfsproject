@@ -12,7 +12,7 @@ testButtonsV1 = ['Send Bool', 'Receive Bool', 'Send Int', 'Receive Int', 'Send F
 lampColors = ['Green', 'Yellow', 'Red']
 
 motors = ["X-motor", "Y-motor", "Z-motor"]
-devices = ["PLC", *motors, "Gripper", "Daheng camera", "Logitech camera", 'X-endstop', 'Y-endstop', 'Z-endstop']
+devices = ["PLC", *motors, "Gripper", "Camera", 'X-endstop', 'Y-endstop', 'Z-endstop']
 
 setting_widgets = {
     "Speed": {
