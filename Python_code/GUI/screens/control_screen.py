@@ -111,8 +111,8 @@ def create_control_widgets(app):
     )
     app.magnet_btn = ctk.CTkButton(
         mainFrame,
-        text="MAGNEET UIT",
-        fg_color="gray",
+        text="MAGNEET AAN",
+        fg_color="green",
         hover_color="#555555",
         height=48,
         font=ctk.CTkFont(size=16, weight="bold"),
