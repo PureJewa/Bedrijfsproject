@@ -1,0 +1,26 @@
+{
+  "speed": {
+    "type": "vector3",
+    "max": 180.0,
+    "plc_map": {
+      "X": "X_Speed_Python",
+      "Y": "Y_Speed_Python",
+      "Z": "Z_Speed_Python"
+    }
+  },
+  "acceleration": {
+    "type": "vector3",
+    "max": 360.0,
+    "plc_map": {
+      "X": "X_Acceleration_Python",
+      "Y": "Y_Acceleration_Python",
+      "Z": "Z_Acceleration_Python"
+    }
+  },
+  "cycles": {
+    "type": "int",
+    "min": 1,
+    "max": 1000,
+    "plc": "Cycles_Python"
+  }
+}

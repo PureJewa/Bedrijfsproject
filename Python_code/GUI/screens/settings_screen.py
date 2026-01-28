@@ -6,6 +6,88 @@ import customtkinter as ctk
 # Imports within the project
 from Python_code.GUI.screens.config_screens import *
 
+import json
+
+class SettingsEngine:
+    def __init__(self, schema_path):
+        with open(schema_path, "r") as f:
+            self.schema = json.load(f)
+
+    def execute(self, command: str):
+        tokens = command.strip().split()
+        if not tokens:
+            return "Empty command"
+
+        cmd = tokens[0].lower()
+
+        if cmd == "set":
+            return self._handle_set(tokens[1:])
+        elif cmd == "get":
+            return self._handle_get(tokens[1:])
+        elif cmd == "help":
+            return self._help()
+        else:
+            return f"Unknown command: {cmd}"
+
+    def _handle_set(self, args):
+        name = args[0]
+        values = args[1:]
+
+        if name not in self.schema:
+            return f"Unknown setting '{name}'"
+
+        cfg = self.schema[name]
+
+        if cfg["type"] == "vector3":
+            return self._set_vector3(name, cfg, values)
+
+        if cfg["type"] == "int":
+            return self._set_int(name, cfg, values)
+
+        return "Unsupported type"
+
+    def _set_vector3(self, name, cfg, values):
+        if len(values) != 3:
+            return "Expected 3 values (X Y Z)"
+
+        axes = ["X", "Y", "Z"]
+        for axis, raw in zip(axes, values):
+            val = float(raw)
+            if val > cfg["max"]:
+                return f"{axis} exceeds max {cfg['max']}"
+
+            plc_key = cfg["plc_map"][axis]
+            self.plc.write(plc_key, val)
+
+        return f"{name} set successfully"
+
+    def _set_int(self, name, cfg, values):
+        if len(values) != 1:
+            return "Expected single integer value"
+
+        val = int(values[0])
+        if not (cfg["min"] <= val <= cfg["max"]):
+            return f"Value out of range ({cfg['min']}–{cfg['max']})"
+
+        self.plc.write(cfg["plc"], val)
+        return f"{name} set to {val}"
+
+    def _handle_get(self, args):
+        name = args[0]
+        cfg = self.schema.get(name)
+        if not cfg:
+            return "Unknown setting"
+
+        if cfg["type"] == "vector3":
+            return {
+                axis: self.plc.read(plc_key)
+                for axis, plc_key in cfg["plc_map"].items()
+            }
+
+        return self.plc.read(cfg["plc"])
+
+    def _help(self):
+        return f"Available settings: {', '.join(self.schema.keys())}"
 
 def toggle_operation_mode(app):
     app.operationSwitch = app.operation_mode_var.get()
@@ -20,7 +102,7 @@ def create_settings_widgets(app):
 
     # Make frame for settings
     settingsFrame = ctk.CTkFrame(app.contentFrame)
-    settingsFrame.pack(fill='both', expand=True, padx=20, pady=20)
+    settingsFrame.pack(fill='both', padx=20, pady=20)
 
     settingsLabel = ctk.CTkLabel(settingsFrame, text="Settings Screen",
                                  font=ctk.CTkFont(size=20, weight="bold"))
@@ -45,6 +127,40 @@ def create_settings_widgets(app):
                                              text="Select",
                                              command=lambda: select_setting(app, settingsFrame,settingsOptions.get()))
     app.settingsSelectButton.pack(pady=5)
+    # app.settings_engine = SettingsEngine(
+    #     "Python_code/settings_schema.json",
+    # )
+    # terminal_frame = ctk.CTkFrame(settingsFrame)
+    # terminal_frame.pack(fill="x", pady=15)
+    #
+    # terminal_label = ctk.CTkLabel(
+    #     terminal_frame, text="Command terminal"
+    # )
+    # terminal_label.pack(anchor="w")
+    #
+    # app.terminal_entry = ctk.CTkEntry(
+    #     terminal_frame,
+    #     placeholder_text="set speed 100 120 80"
+    # )
+    # app.terminal_entry.pack(fill="x", pady=5)
+    #
+    # app.terminal_output = ctk.CTkTextbox(
+    #     terminal_frame, height=120
+    # )
+    # app.terminal_output.pack(fill="x")
+
+    # def run_terminal_command():
+    #     cmd = app.terminal_entry.get()
+    #     result = app.settings_engine.execute(cmd)
+    #     app.terminal_output.insert("end", f"> {cmd}\n{result}\n\n")
+    #     app.terminal_entry.delete(0, "end")
+    #
+    # terminal_btn = ctk.CTkButton(
+    #     terminal_frame,
+    #     text="Execute",
+    #     command=run_terminal_command
+    # )
+    # terminal_btn.pack(pady=5)
 
 
 def select_setting(app, frame, selected_option):

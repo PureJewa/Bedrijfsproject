@@ -183,6 +183,7 @@ def apply_bits(app, desired: dict):
         except Exception as e:
             write_log(f"Error writing bit {name}: {e}")
 
+
 def signed_percent(app, axis_val: float) -> float:
     dz = float(app.deadzone.get())
     a = abs(axis_val)
@@ -242,9 +243,11 @@ def on_rotation(app, value):
     app.pct_r.set(f"{deg:+.0f}°")
     handle_axis(app, "R", value, "Forward_R_Python", "Backward_R_Python", "Joystick_R_speed")
 
+
 # ==========================================================
 # Widgets
 # ==========================================================
+
 class Joystick(ctk.CTkFrame):
     def __init__(self, master, label="", diameter=240, only_vertical=False, on_change=None):
         super().__init__(master, corner_radius=12)
@@ -306,6 +309,8 @@ class Joystick(ctk.CTkFrame):
     def click(self, e): self.process(e.x, e.y)
     def drag(self, e): self.process(e.x, e.y)
     def release(self, _): self.center()
+
+
 class RotationKnob(ctk.CTkFrame):
     def __init__(
         self,

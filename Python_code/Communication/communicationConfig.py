@@ -23,19 +23,22 @@ MAX_COORD_Z = 500.0
 # Here you can set BITS for the offsets of the data blocks
 # Format: "Bit_Name": (Byte_Index, Bit_Index)
 BITS_ALL = {
-    "Power_Python":        (0, 0),
-    "Start_Python":        (0, 1),
-    "Stop_Python":         (0, 2),
-    "Pauze_Python":        (0, 3),
-    "Reset_Python":        (0, 4),
-    "Home_Python":         (0, 5),
-    "Move_Python":         (0, 6),
-    "Go_QR_Python":        (0, 7),
-    "QR_Ready_PLC":        (126, 3),
-    "Ready_For_Coord_PLC": (126, 4),
-    "At_Pick_Coordinate_PLC":   (126, 5),
-    "At_Place_Coordinate_PLC":  (126, 6),
-    "Magneet_Python":     (),
+    "Power_Python":             (0, 0),
+    "Start_Python":             (0, 1),
+    "Stop_Python":              (0, 2),
+    "Pauze_Python":             (0, 3),
+    "Reset_Python":             (0, 4),
+    "Home_Python":              (0, 5),
+    "Move_Python":              (0, 6),
+    "Go_QR_Python":             (0, 7),
+    "Magneet_Python":           (2, 0),
+    "Move_Pick_Python":         (2, 1),
+    "Move_Place_Python":        (2, 2),
+    "QR_Ready_PLC":             (120, 3),
+    "Ready_For_Coord_PLC":      (120, 4),
+    "At_Pick_Coordinate_PLC":   (120, 5),
+    "At_Place_Coordinate_PLC":  (120, 6),
+
 
 
     "Forward_X_Python":    (1, 0),
@@ -44,8 +47,8 @@ BITS_ALL = {
     "Backward_Y_Python":   (1, 3),
     "Forward_Z_Python":    (1, 4),
     "Backward_Z_Python":   (1, 5),
-    "Forward_R_Python":   (1, 6),
-    "Backward_R_Python":  (1, 7),
+    "Forward_R_Python":    (1, 6), #Right rotation
+    "Backward_R_Python":   (1, 7), #Left rotation
 }
 
 # For easier access, we separate control and motion bits
@@ -63,27 +66,28 @@ MOTION_BITS = [
 # Here you can set REAL offsets for the data blocks
 # Format: "Real_Name": Byte_Index
 LREAL_OFFSETS = {
-    "Pick_X_Coord_Python":  78,
-    "Pick_Y_Coord_Python": 86,
-    "Pick_Z_Coord_Python": 94,
+    "X_Speed_Python": 4,
+    "Y_Speed_Python": 12,
+    "Z_Speed_Python": 20,
+    "R_speed_Python": 28,
 
-    "Place X_Coord_Python": 102,
-    "Place_Y_Coord_Python": 110,
-    "Place_Z_Coord_Python": 118,
+    "Joystick_X_speed": 36,
+    "Joystick_Y_speed": 44,
+    "Joystick_Z_speed": 52,
+    "Joystick_R_speed": 60,
 
-    "X_Speed_Python": 26,
-    "Y_Speed_Python": 34,
-    "Z_Speed_Python": 42,
+    "Pick_X_Coord_Python": 72,
+    "Pick_Y_Coord_Python": 80,
+    "Pick_Z_Coord_Python": 88,
 
-    "Joystick_X_speed": 50,
-    "Joystick_Y_speed": 58,
-    "Joystick_Z_speed": 66,
-    "Joystick_R_speed": 78
+    "Place_X_Coord_Python": 96,
+    "Place_Y_Coord_Python": 104,
+    "Place_Z_Coord_Python": 112,
 }
 
 # Here you can set INT offsets for the data blocks
 # Format: "Int_Name": Byte_Index
 INT_OFFSETS = {
-    "Pallet_Amount": 74,
-    "Sheet_Amount": 76,
+    "Pallet_Amount": 68,
+    "Sheet_Amount": 70,
 }
