@@ -17,6 +17,7 @@ class PLCState(Enum):
     SEND_PLACE = 5
     MOVE_PLACE = 6
     DONE = 7
+    AT_PLACE = 8
 
 
 class PLCSequence:
@@ -59,6 +60,7 @@ class PLCSequence:
                 self.state = PLCState.WAIT_QR
 
         elif self.state == PLCState.WAIT_QR:
+            set_bit("Go_QR_Python", False)
             if get_bit("QR_Ready_PLC"):
                 coords = self.vision.get_coordinates()
                 if coords is not None:
@@ -82,18 +84,23 @@ class PLCSequence:
                     self.state = PLCState.MOVE_PICK
 
         elif self.state == PLCState.MOVE_PICK:
+            set_bit("Send_Coords", False)
             set_bit("Move_Pick_Python", True)
             if get_bit("At_Pick_Coordinate_PLC"):
-                if not self.place_sent:
-                    placeX = 300
-                    placeY = 400
-                    write_place_coord(placeX, placeY, self.z)
-                    write_log("Place coordinate sent")
-                    self.place_sent = True
-                if check_place_coord(placeX, placeY, self.z):
-                    write_log("Place coordinate accepted")
-                    self.place_sent = False
-                    self.state = PLCState.MOVE_PLACE
+                set_bit("Move_Pick_Python", False)
+                set_bit("Move_To_SafeSpot_Python", True)
+                if get_bit("At_SafeSpot_PLC"):
+                    set_bit("Move_To_SafeSpot_Python", False)
+                    if not self.place_sent:
+                        placeX = 340
+                        placeY = 500
+                        write_place_coord(placeX, placeY, self.z)
+                        write_log("Place coordinate sent")
+                        self.place_sent = True
+                    if check_place_coord(placeX, placeY, self.z):
+                        write_log("Place coordinate accepted")
+                        self.place_sent = False
+                        self.state = PLCState.AT_PLACE
 
         elif self.state == PLCState.MOVE_PLACE:
             set_bit("Move_Place_Python", True)
@@ -101,13 +108,13 @@ class PLCSequence:
                 self.state = PLCState.SEND_PLACE
 
         elif self.state == PLCState.SEND_PLACE:
+            set_bit("Move_Place_Python", False)
             if get_bit("Ready_For_Coord_PLC"):
                 set_bit("Move_Python", True)
                 set_bit("Move_Python", False)
                 self.state = PLCState.DONE
 
         elif self.state == PLCState.DONE:
-            set_bit("Start_Python", False)
             used_point = pop_first_coordinate(self.vision)
             write_log(f"Point consumed: {used_point}")
 
