@@ -195,6 +195,8 @@ def home_button_action(app, name):
         # Reset all mutually exclusive PLC control bits
         for bit in action["reset"]:
             set_bit(bit, False)
+        if name is "Reset_Python":
+            app.resetStatemachine = True
         time.sleep(0.5)
         # Verify whether the PLC acknowledged the command
         confirmed = get_bit(action["bit"])

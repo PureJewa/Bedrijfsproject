@@ -36,6 +36,7 @@ class Gui(ctk.CTk):  # Our GUI is a subclass of CTk (CustomTkinter main window)
         self.logScreen = None
         self.magnet_on = False
         self.camera_connected = None
+        self.resetStatemachine = False
         self.device_status = {
             "PLC": "unknown",
             "X-motor" : "NA",

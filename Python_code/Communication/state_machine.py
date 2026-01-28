@@ -20,16 +20,33 @@ class PLCState(Enum):
 
 
 class PLCSequence:
-    def __init__(self, vision):
+    def __init__(self, vision, gui):
         self.state = PLCState.IDLE
         self.coords = None
         self.vision = vision
+        self.gui = gui
+        self.gui.resetStatemachine = False
         self.prev_state = None
         self.pick_sent = False
         self.place_sent = False
-        self.z = -100  # Hoogte voor pick actie
+        self.z = -226  # Hoogte voor pick actie
 
     def step(self):
+        if self.gui.resetStatemachine:
+            write_log("PLC state machine reset")
+            self.state = PLCState.IDLE
+            self.coords = None
+            self.gui.resetStatemachine = False
+            self.pick_sent = False
+            self.place_sent = False
+            set_bit("Start_Python", False)
+            set_bit("Move_Python", False)
+            set_bit("Home_Python", False)
+            set_bit("Go_QR_Python", False)
+            set_bit("Send_Coords", False)
+            set_bit("Move_Pick_Python", False)
+            set_bit("Move_Place_Python", False)
+
         if self.state != self.prev_state:
             write_log(f"PLC state changed to {self.state.name}")
             self.prev_state = self.state
@@ -39,11 +56,7 @@ class PLCSequence:
                 set_bit("Home_Python", False)
                 set_bit("Go_QR_Python", True)
                 self.vision.start()
-                self.state = PLCState.GO_QR
-
-        elif self.state == PLCState.GO_QR:
-            set_bit("Go_QR_Python", False)
-            self.state = PLCState.WAIT_QR
+                self.state = PLCState.WAIT_QR
 
         elif self.state == PLCState.WAIT_QR:
             if get_bit("QR_Ready_PLC"):
@@ -55,7 +68,7 @@ class PLCSequence:
         elif self.state == PLCState.SEND_PICK:
             # Alleen sturen als nog niet gestuurd
             set_bit("Send_Coords", True)
-            if get_bit("Ready_For_Coord_PLC")
+            if get_bit("Ready_For_Coord_PLC"):
                 point = self.coords[0]
                 if not self.pick_sent:
                     write_pick_coord(point["x"], point["y"], self.z)

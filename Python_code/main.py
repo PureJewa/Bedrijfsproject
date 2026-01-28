@@ -26,8 +26,8 @@ def run_plc(gui_app):
         write_log("Failed to connect to PLC.")
         gui_app.device_status["PLC"] = "error"
 
-def plc_worker(vision_app):
-    seq = PLCSequence(vision_app)
+def plc_worker(vision_app, gui_app):
+    seq = PLCSequence(vision_app, gui_app)
     while True:
         seq.step()
         time.sleep(0.05)
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     #
     # Start Vision in aparte thread
     threading.Thread(target=run_vision, args=(app,), daemon=True).start()
-    threading.Thread(target=plc_worker, args=(vision_app,), daemon=True).start()
+    threading.Thread(target=plc_worker, args=(vision_app,app,), daemon=True).start()
     threading.Thread(target=camera_worker, args=(app, 1), daemon=True).start()
     app.mainloop()
 
