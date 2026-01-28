@@ -34,6 +34,7 @@ BITS_ALL = {
     "Magneet_Python":           (2, 0),
     "Move_Pick_Python":         (2, 1),
     "Move_Place_Python":        (2, 2),
+    "Send_Coords":              (2, 3),
     "QR_Ready_PLC":             (120, 3),
     "Ready_For_Coord_PLC":      (120, 4),
     "At_Pick_Coordinate_PLC":   (120, 5),

@@ -54,17 +54,19 @@ class PLCSequence:
 
         elif self.state == PLCState.SEND_PICK:
             # Alleen sturen als nog niet gestuurd
-            point = self.coords[0]
-            if not self.pick_sent:
-                write_pick_coord(point["x"], point["y"], self.z)
-                write_log("Pick coordinate sent")
-                self.pick_sent = True
+            set_bit("Send_Coords", True)
+            if get_bit("Ready_For_Coord_PLC")
+                point = self.coords[0]
+                if not self.pick_sent:
+                    write_pick_coord(point["x"], point["y"], self.z)
+                    write_log("Pick coordinate sent")
+                    self.pick_sent = True
 
-            # Controleer of PLC de coordinaat accepteert
-            if check_pick_coord(point["x"], point["y"], self.z):
-                write_log("Pick coordinate accepted")
-                self.pick_sent = False
-                self.state = PLCState.MOVE_PICK
+                # Controleer of PLC de coordinaat accepteert
+                if check_pick_coord(point["x"], point["y"], self.z):
+                    write_log("Pick coordinate accepted")
+                    self.pick_sent = False
+                    self.state = PLCState.MOVE_PICK
 
         elif self.state == PLCState.MOVE_PICK:
             set_bit("Move_Pick_Python", True)
