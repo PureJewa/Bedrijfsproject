@@ -18,6 +18,8 @@ class PLCState(Enum):
     MOVE_PLACE = 6
     DONE = 7
     AT_PLACE = 8
+    MOVE_SAFE_SPOT = 9
+    AT_SAFE_SPOT = 10
 
 
 class PLCSequence:
@@ -86,21 +88,27 @@ class PLCSequence:
         elif self.state == PLCState.MOVE_PICK:
             set_bit("Send_Coords", False)
             set_bit("Move_Pick_Python", True)
+            self.state = PLCState.MOVE_SAFE_SPOT
+
+        elif self.state == PLCState.MOVE_SAFE_SPOT:
             if get_bit("At_Pick_Coordinate_PLC"):
                 set_bit("Move_Pick_Python", False)
                 set_bit("Move_To_SafeSpot_Python", True)
-                if get_bit("At_SafeSpot_PLC"):
-                    set_bit("Move_To_SafeSpot_Python", False)
-                    if not self.place_sent:
-                        placeX = 340
-                        placeY = 500
-                        write_place_coord(placeX, placeY, self.z)
-                        write_log("Place coordinate sent")
-                        self.place_sent = True
-                    if check_place_coord(placeX, placeY, self.z):
-                        write_log("Place coordinate accepted")
-                        self.place_sent = False
-                        self.state = PLCState.AT_PLACE
+                self.state = PLCState.AT_SAFE_SPOT
+
+        elif self.state == PLCState.AT_SAFE_SPOT:
+            if get_bit("At_SafeSpot_PLC"):
+                set_bit("Move_To_SafeSpot_Python", False)
+                if not self.place_sent:
+                    placeX = 340
+                    placeY = 500
+                    write_place_coord(placeX, placeY, self.z)
+                    write_log("Place coordinate sent")
+                    self.place_sent = True
+                if check_place_coord(placeX, placeY, self.z):
+                    write_log("Place coordinate accepted")
+                    self.place_sent = False
+                    self.state = PLCState.AT_PLACE
 
         elif self.state == PLCState.MOVE_PLACE:
             set_bit("Move_Place_Python", True)
