@@ -170,7 +170,7 @@ def write_speed_if_changed(app, name: str, value: float):
     last = app.last_speed.get(name)
     if last is None or abs(value - last) >= 0.1:
         try:
-            write_lreal(LREAL_OFFSETS[name], value)
+            write_lreal(name, value)
             app.last_speed[name] = value
         except Exception as e:
             write_log(f"Error writing speed {name}: {e}")
@@ -402,7 +402,7 @@ def toggle_magnet(app):
         return
 
     # UI feedback
-    if app.magnet_on:
+    if not app.magnet_on:
         app.magnet_btn.configure(
             text="MAGNEET AAN",
             fg_color="green"
