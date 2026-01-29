@@ -11,6 +11,7 @@ from Python_code.Communication.state_machine import PLCSequence
 from Python_code.Logger.logger import write_log
 from Python_code.Vision.Vision import Vision
 
+
 vision_app = Vision()
 
 def run_plc(gui_app):
