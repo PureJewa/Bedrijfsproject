@@ -3,10 +3,11 @@
 import threading
 import time
 import cv2
-
+import time
 # Imports within the project
 from Python_code.GUI.App import Gui
 from Python_code.Communication.communicationTia import plc_connect
+from Python_code.Communication.communicationTia import *
 from Python_code.Communication.state_machine import PLCSequence
 from Python_code.Logger.logger import write_log
 from Python_code.Vision.Vision import Vision
@@ -21,8 +22,14 @@ def run_plc(gui_app):
     """
 
     if plc_connect():
+
+
         write_log("Connected to PLC successfully.")
         gui_app.device_status["PLC"] = "ok"
+        time.sleep(1)
+        for name in BITS_ALL:
+            set_bit(name, False)
+
     else:
         write_log("Failed to connect to PLC.")
         gui_app.device_status["PLC"] = "error"
@@ -106,10 +113,13 @@ if __name__ == "__main__":
 
     # Verind met PLC in apparte thread
     threading.Thread(target=run_plc, args=(app,), daemon=True).start()
+    time.sleep(1)
     #
     # Start Vision in aparte thread
     threading.Thread(target=run_vision, args=(app,), daemon=True).start()
+    time.sleep(1)
     threading.Thread(target=plc_worker, args=(vision_app,app,), daemon=True).start()
+    time.sleep(1)
     threading.Thread(target=camera_worker, args=(app, 1), daemon=True).start()
     app.mainloop()
 

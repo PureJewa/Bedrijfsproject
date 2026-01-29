@@ -36,11 +36,13 @@ BITS_ALL = {
     "Move_Place_Python":        (2, 2),
     "Send_Coords":              (2, 3),
     "Move_To_SafeSpot_Python":  (2, 4),
+    "Move_To_SafeSpot2_Python": (2, 5),
     "QR_Ready_PLC":             (120, 3),
     "Ready_For_Coord_PLC":      (120, 4),
     "At_Pick_Coordinate_PLC":   (120, 5),
     "At_Place_Coordinate_PLC":  (120, 6),
     "At_SafeSpot_PLC":          (120, 7),
+    "At_SafeSpot2_PLC":         (121, 0),
 
 
 

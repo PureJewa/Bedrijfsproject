@@ -20,7 +20,7 @@ class PLCState(Enum):
     AT_PLACE = 8
     MOVE_SAFE_SPOT = 9
     AT_SAFE_SPOT = 10
-
+    AT_SAFE_SPOT2 =  11
 
 class PLCSequence:
     def __init__(self, vision, gui):
@@ -32,7 +32,7 @@ class PLCSequence:
         self.prev_state = None
         self.pick_sent = False
         self.place_sent = False
-        self.z = -220  # Hoogte voor pick actie
+        self.z = -226  # Hoogte voor pick actie
 
     def step(self):
         if self.gui.resetStatemachine:
@@ -102,25 +102,28 @@ class PLCSequence:
                 if not self.place_sent:
                     placeX = 340
                     placeY = 550
-                    write_place_coord(placeX, placeY, self.z)
+                    write_place_coord(placeX, placeY, -220.0)
                     write_log("Place coordinate sent")
                     self.place_sent = True
-                if check_place_coord(placeX, placeY, self.z):
+                if check_place_coord(placeX, placeY, -220.0):
                     write_log("Place coordinate accepted")
                     self.place_sent = False
-                    self.state = PLCState.AT_PLACE
+                    set_bit("Move_Place_Python", True)
+                    self.state = PLCState.MOVE_PLACE
 
         elif self.state == PLCState.MOVE_PLACE:
-            set_bit("Move_Place_Python", True)
             if get_bit("At_Place_Coordinate_PLC"):
                 set_bit("Move_Place_Python", False)
-                self.state = PLCState.SEND_PLACE
+                set_bit("Move_To_SafeSpot2_Python", True)
+                self.state = PLCState.AT_SAFE_SPOT2
 
-        elif self.state == PLCState.SEND_PLACE:
-            if get_bit("Ready_For_Coord_PLC"):
-                set_bit("Move_Python", True)
-                set_bit("Move_Python", False)
-                self.state = PLCState.DONE
+        elif self.state == PLCState.AT_SAFE_SPOT2:
+            if get_bit("At_SafeSpot2_PLC"):
+                set_bit("Move_To_SafeSpot2_Python", False)
+                set_bit("Send_Coords", True)
+                if get_bit("Ready_For_Coord_PLC"):
+                    set_bit("Send_Coords", False)
+                    self.state = PLCState.DONE
 
         elif self.state == PLCState.DONE:
             used_point = pop_first_coordinate(self.vision)
