@@ -32,7 +32,7 @@ class PLCSequence:
         self.prev_state = None
         self.pick_sent = False
         self.place_sent = False
-        self.z = -226  # Hoogte voor pick actie
+        self.z = -220  # Hoogte voor pick actie
 
     def step(self):
         if self.gui.resetStatemachine:
@@ -101,7 +101,7 @@ class PLCSequence:
                 set_bit("Move_To_SafeSpot_Python", False)
                 if not self.place_sent:
                     placeX = 340
-                    placeY = 500
+                    placeY = 550
                     write_place_coord(placeX, placeY, self.z)
                     write_log("Place coordinate sent")
                     self.place_sent = True
@@ -113,10 +113,10 @@ class PLCSequence:
         elif self.state == PLCState.MOVE_PLACE:
             set_bit("Move_Place_Python", True)
             if get_bit("At_Place_Coordinate_PLC"):
+                set_bit("Move_Place_Python", False)
                 self.state = PLCState.SEND_PLACE
 
         elif self.state == PLCState.SEND_PLACE:
-            set_bit("Move_Place_Python", False)
             if get_bit("Ready_For_Coord_PLC"):
                 set_bit("Move_Python", True)
                 set_bit("Move_Python", False)
